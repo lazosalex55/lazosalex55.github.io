@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Santos Lazos | IT Technician</title>
+  <meta name="description" content="Santos Lazos - IT Technician in San Antonio, TX. CompTIA A+, Network+, Security+ and ITIL Foundation certified.">
+  <style>
+    :root {
+      --bg: #0f1720;
+      --panel: #16212d;
+      --line: #263445;
+      --text: #e6edf3;
+      --muted: #9fb0c0;
+      --accent: #3fb68b;
+      --accent-soft: rgba(63, 182, 139, 0.12);
+      --mono: "Cascadia Code", "Consolas", "SFMono-Regular", Menlo, monospace;
+      --sans: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    nav.top { position: sticky; top: 0; z-index: 10; background: rgba(15, 23, 32, 0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+    nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    nav.top .brand { font-family: var(--mono); color: var(--text); font-weight: 600; }
+    nav.top .brand span { color: var(--accent); }
+    nav.top ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; }
+    nav.top ul a { color: var(--muted); font-size: 0.95rem; }
+    nav.top ul a:hover { color: var(--text); text-decoration: none; }
+
+    header.hero { padding: 80px 0 64px; border-bottom: 1px solid var(--line); }
+    .hero-grid { display: grid; grid-template-columns: 1fr 220px; gap: 48px; align-items: center; }
+    .prompt { font-family: var(--mono); color: var(--accent); font-size: 0.95rem; margin: 0 0 12px; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.02em; }
+    .role { font-size: 1.25rem; color: var(--muted); margin: 0 0 24px; }
+    .lead { max-width: 620px; font-size: 1.05rem; margin: 0 0 28px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-block; padding: 11px 20px; border-radius: 6px; font-weight: 600; border: 1px solid var(--accent); }
+    .btn.primary { background: var(--accent); color: #07120d; }
+    .btn.ghost { color: var(--accent); }
+    .btn:hover { text-decoration: none; filter: brightness(1.1); }
+    .headshot { width: 220px; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); }
+
+    section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+    h2 { font-size: 1.6rem; margin: 0 0 8px; }
+    .sub { color: var(--muted); margin: 0 0 32px; }
+    .label { font-family: var(--mono); color: var(--accent); font-size: 0.85rem; letter-spacing: 0.04em; margin: 0 0 6px; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 22px; }
+    .card h3 { margin: 0 0 8px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .icon { font-family: var(--mono); color: var(--accent); background: var(--accent-soft); display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-bottom: 12px; }
+
+    .certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .cert { border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 8px; padding: 14px 16px; background: var(--panel); }
+    .cert strong { display: block; }
+    .cert span { color: var(--muted); font-size: 0.9rem; }
+
+    .timeline { list-style: none; margin: 0; padding: 0; }
+    .timeline li { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 20px 0; border-top: 1px solid var(--line); }
+    .timeline li:first-child { border-top: none; }
+    .timeline .where { color: var(--muted); font-size: 0.95rem; }
+    .timeline .where strong { color: var(--text); display: block; font-size: 1rem; }
+    .timeline ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .timeline ul li { display: list-item; padding: 2px 0; border: none; }
+
+    .project { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 28px; }
+    .project h3 { margin: 0 0 10px; font-size: 1.3rem; }
+    .project p { color: var(--muted); margin: 0 0 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; }
+    .tags li { font-family: var(--mono); font-size: 0.8rem; border: 1px solid var(--line); border-radius: 4px; padding: 2px 8px; color: var(--text); }
+    .pages { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+    .pages a { display: block; border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; color: var(--text); background: var(--bg); }
+    .pages a:hover { border-color: var(--accent); text-decoration: none; }
+    .pages a small { display: block; color: var(--muted); }
+
+    .edu { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+
+    .contact { text-align: center; }
+    .contact .btns { justify-content: center; }
+    footer { padding: 28px 0; color: var(--muted); font-size: 0.9rem; text-align: center; }
+
+    @media (max-width: 760px) {
+      nav.top ul { display: none; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .headshot { order: -1; width: 140px; height: 140px; }
+      .timeline li { grid-template-columns: 1fr; gap: 8px; }
+      .project { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top">
+    <div class="wrap">
+      <a class="brand" href="#">santos<span>@</span>lazos:~$</a>
+      <ul>
+        <li><a href="#bring">What I Bring</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="prompt">&gt; whoami</p>
+        <h1>Santos Lazos</h1>
+        <p class="role">IT Technician &middot; San Antonio, TX</p>
+        <p class="lead">I troubleshoot hardware, software and network problems, support end users, and lead teams through escalated issues. I hold CompTIA A+, Network+ and Security+ plus ITIL Foundation, and I run my own homelab to keep my skills sharp.</p>
+        <div class="btns">
+          <a class="btn primary" href="project/resume.html">View Resume</a>
+          <a class="btn ghost" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+      <img class="headshot" src="project/images/headshot.jpg" alt="Headshot of Santos Lazos">
+    </div>
+  </header>
+
+  <main>
+    <section id="bring">
+      <div class="wrap">
+        <p class="label">// what I bring</p>
+        <h2>What I bring as an IT Technician</h2>
+        <p class="sub">Hands-on technical skills, backed by certifications and years of leading people.</p>
+        <div class="cards">
+          <div class="card">
+            <span class="icon">hardware</span>
+            <h3>End-user support</h3>
+            <p>Troubleshooting desktops, laptops, mobile devices and peripherals, and getting users back to work quickly.</p>
+          </div>
+          <div class="card">
+            <span class="icon">software</span>
+            <h3>Software &amp; systems</h3>
+            <p>Installing and configuring software and fixing technical problems in the warehouse to keep systems and devices running.</p>
+          </div>
+          <div class="card">
+            <span class="icon">network</span>
+            <h3>Networking</h3>
+            <p>Resolving networking issues in a live work environment, backed by Network+ and hands-on homelab practice.</p>
+          </div>
+          <div class="card">
+            <span class="icon">security</span>
+            <h3>Security-minded</h3>
+            <p>Security+ certified, with a focus on keeping systems running efficiently <em>and</em> securely.</p>
+          </div>
+          <div class="card">
+            <span class="icon">itil</span>
+            <h3>Service delivery</h3>
+            <p>ITIL Foundation practices: managing schedules and workflows so deadlines and service standards are met.</p>
+          </div>
+          <div class="card">
+            <span class="icon">people</span>
+            <h3>Leadership &amp; communication</h3>
+            <p>5+ years supervising and mentoring staff, working across departments, and explaining technical issues clearly to customers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certs">
+      <div class="wrap">
+        <p class="label">// certifications</p>
+        <h2>Certifications</h2>
+        <p class="sub">Industry-recognized credentials across hardware, networking, security and IT service management.</p>
+        <div class="certs">
+          <div class="cert"><strong>CompTIA A+</strong><span>Hardware, OS &amp; troubleshooting</span></div>
+          <div class="cert"><strong>CompTIA Network+</strong><span>Networking fundamentals</span></div>
+          <div class="cert"><strong>CompTIA Security+</strong><span>Security operations</span></div>
+          <div class="cert"><strong>ITIL Foundation</strong><span>IT service management</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <p class="label">// experience</p>
+        <h2>Experience</h2>
+        <p class="sub">The highlights that carry over to IT support.</p>
+        <ul class="timeline">
+          <li>
+            <div class="where"><strong>Data Clear Assistant Manager</strong>Mannapov, LLC &middot; Boerne, TX</div>
+            <ul>
+              <li>Supervise staff and keep warehouse systems and devices running at full performance.</li>
+              <li>Install software and fix technical problems in the warehouse to get operations back up.</li>
+              <li>Led efforts to resolve software and networking problems and streamline workflows.</li>
+              <li>Work across departments, covering everything from desk work to the warehouse floor.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="where"><strong>Solar Sales &amp; Technology Consultant</strong>Sunrun &middot; San Antonio, TX</div>
+            <ul>
+              <li>Analyzed customer energy-usage data to tailor system designs for efficiency and ROI.</li>
+              <li>Led cross-functional teams to deliver solutions and measurable project results.</li>
+              <li>Explained technical products clearly to customers and consistently beat monthly quotas.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="where"><strong>Medical Technician</strong>Elmcroft Assisted Living &middot; Lake Jackson, TX</div>
+            <ul>
+              <li>Held a management position with responsibility for time-critical, accurate work.</li>
+              <li>Kept to a strict schedule on a night-shift rotation.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="where"><strong>Pawn Broker / Sales Associate</strong>Cash America Pawn &middot; San Antonio, TX</div>
+            <ul>
+              <li>Evaluated items for condition and value; handled register and cash flow.</li>
+              <li>Communicated with staff and management to give customers complete care.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="project">
+      <div class="wrap">
+        <p class="label">// featured project</p>
+        <h2>Featured project</h2>
+        <p class="sub">A multi-page personal career website I built by hand.</p>
+        <div class="project">
+          <div>
+            <h3>Personal Career Website</h3>
+            <p>Three linked pages built from scratch with HTML, CSS and a little JavaScript: a resume with a career-highlights table, a cover letter, and a career-goals page with embedded video and audio plus a contact form.</p>
+            <ul class="tags">
+              <li>HTML5</li><li>CSS3</li><li>Flexbox</li><li>JavaScript</li><li>Forms</li><li>Audio/Video</li>
+            </ul>
+            <a class="btn ghost" href="https://github.com/lazosalex55/lazosalex55.github.io/tree/main/project">View source on GitHub</a>
+          </div>
+          <ul class="pages">
+            <li><a href="project/resume.html">Resume<small>Work history, skills and career-highlights table</small></a></li>
+            <li><a href="project/cover-letter.html">Cover Letter<small>Formatted letter with semantic sections</small></a></li>
+            <li><a href="project/careergoals.html">Career Goals<small>Video, audio, ordered list and contact form</small></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <p class="label">// education &amp; growth</p>
+        <h2>Education &amp; continuous learning</h2>
+        <p class="sub">Working toward a Bachelor's in Information Technology.</p>
+        <div class="edu">
+          <div class="card"><h3>University of Texas at San Antonio</h3><p>Bachelor of Arts in Psychology</p></div>
+          <div class="card"><h3>Northwest Vista College</h3><p>Associate of Applied Science</p></div>
+          <div class="card"><h3>Homelab</h3><p>A personal lab where I practice networking, systems and security outside the classroom.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <p class="label">// contact</p>
+        <h2>Let's talk</h2>
+        <p class="sub">Open to help desk and IT technician roles in San Antonio, TX and nearby.</p>
+        <div class="btns">
+          <a class="btn primary" href="mailto:Lazosalex55@gmail.com">Email Me</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/santos-lazos-903808247/">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/lazosalex55">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 Santos Lazos</footer>
+</body>
+</html>
